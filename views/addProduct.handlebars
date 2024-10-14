@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Producto</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1>Agregar Producto</h1>
+    
+    {{#if error_msg}}
+        <div class="alert alert-danger">{{error_msg}}</div>
+    {{/if}}
+
+    <form action="/products/add" method="POST">
+        <div>
+            <label for="name">Nombre:</label>
+            <input type="text" name="name" required>
+        </div>
+        <div>
+            <label for="price">Precio:</label>
+            <input type="number" name="price" required>
+        </div>
+        <div>
+            <label for="description">Descripción:</label>
+            <textarea name="description"></textarea>
+        </div>
+        <div>
+            <label for="stock">Stock:</label>
+            <input type="number" name="stock" min="0" required>
+        </div>
+        <div>
+            <label for="category">Categoría:</label>
+            <input type="text" name="category" required>
+        </div>
+        <div>
+            <label for="imageUrl">URL de la Imagen:</label>
+            <input type="url" name="imageUrl">
+        </div>
+        <button type="submit">Agregar Producto</button>
+    </form>
+    
+    <a href="/products">Volver a la lista de productos</a>
+</body>
+</html>

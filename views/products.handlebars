@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Productos</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1>Lista de Productos</h1>
+
+    {{#if success_msg}}
+        <div class="alert alert-success">{{success_msg}}</div>
+    {{/if}}
+    
+    {{#if error_msg}}
+        <div class="alert alert-danger">{{error_msg}}</div>
+    {{/if}}
+
+    <a href="/products/add">Agregar Nuevo Producto</a>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Stock</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each products}}
+                <tr>
+                    <td>{{this.name}}</td>
+                    <td>${{this.price}}</td>
+                    <td>{{this.stock}}</td>
+                    <td>
+                        <a href="/products/edit/{{this._id}}">Editar</a>
+                        <a href="/products/delete/{{this._id}}">Eliminar</a>
+                    </td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+    <div>
+        {{#if (gt totalPages 1)}}
+            {{#each (range 1 totalPages)}}
+                <a href="/products?page={{this}}">{{this}}</a>
+            {{/each}}
+        {{/if}}
+    </div>
+</body>
+</html>
