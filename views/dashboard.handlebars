@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+</head>
+<body>
+  <h1>Dashboard de Administrador</h1>
+
+  <h2>Usuarios</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each users}}
+        <tr>
+          <td>{{this.name}}</td>
+          <td>{{this.email}}</td>
+          <td>
+            <form action="/admin/deleteUser" method="POST">
+              <input type="hidden" name="userId" value="{{this._id}}">
+              <button type="submit">Eliminar</button>
+            </form>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  <h2>Carritos</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Usuario</th>
+        <th>Total</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each carts}}
+        <tr>
+          <td>{{this.user.name}}</td>
+          <td>{{this.total}}</td>
+          <td>
+            <a href="/admin/editCart/{{this._id}}">Modificar</a>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</body>
+</html>

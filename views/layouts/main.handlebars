@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title> <!-- Cambia el título según sea necesario -->
+    <link rel="stylesheet" href="/css/styles.css"> <!-- Asegúrate de tener tu CSS en esta ruta -->
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/auth/login">Iniciar sesión</a></li>
+                <li><a href="/auth/register">Registrarse</a></li>
+                <li><a href="/products">Productos</a></li>
+                <!-- Agrega más enlaces según sea necesario -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {{{body}}} <!-- Este es el contenido de la vista que se renderizará -->
+    </main>
+
+    <footer>
+        <p>© 2024 Tu Nombre o Nombre de la Empresa. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
